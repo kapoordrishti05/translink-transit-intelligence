@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Transit Intelligence Dashboard</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ==================================================
+         Header
+    ================================================== -->
+
+    <header class="header">
+
+        <div class="header-content">
+
+            <h1>
+                Transit Intelligence Dashboard
+            </h1>
+
+            <p>
+                GTFS-based transit route and frequency analysis
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==================================================
+         Main Content
+    ================================================== -->
+
+    <main class="container">
+
+
+        <!-- ==================================================
+             Transit Analysis
+        ================================================== -->
+
+        <section class="card">
+
+            <h2>
+                Transit Analysis
+            </h2>
+
+            <p>
+                Select a route, direction, stop, and time range.
+            </p>
+
+            <div class="service-disclaimer">
+
+                <strong>Scheduled Service Notice:</strong> This dashboard uses scheduled GTFS transit data. Results represent planned service and do not show real-time vehicle locations, delays, ridership, crowding, or passenger demand.
+
+            </div>
+
+            <div class="service-disclaimer">
+                <strong>GTFS Data Status:</strong>
+                <span id="gtfs-data-status">Loading GTFS feed information...</span>
+            </div>
+
+            <div class="controls">
+                <!-- Mode -->
+
+                <div class="control-group">
+
+                    <label for="mode">
+        Mode
+    </label>
+
+                    <select id="mode">
+
+        <option value="bus">
+            Bus
+        </option>
+
+    </select>
+
+                </div>
+
+
+                <!-- Route -->
+
+                <!-- Route -->
+                <div class="control-group">
+                    <label for="route-search">
+        Search Route
+    </label>
+
+                    <input type="text" id="route-search" placeholder="Search by route number or name...">
+                </div>
+
+                <div class="control-group">
+                    <label for="route">
+        Route
+    </label>
+
+                    <select id="route">
+        <option value="">
+            Select a route
+        </option>
+    </select>
+                </div>
+
+
+                <!-- Direction -->
+
+                <div class="control-group">
+
+                    <label for="direction">
+                        Direction
+                    </label>
+
+                    <select id="direction">
+
+                        <option value="">
+                            Select a direction
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Stop -->
+
+                <!-- Stop -->
+
+                <div class="control-group">
+
+                    <label for="stop-search">
+        Search Stop
+    </label>
+
+                    <input type="text" id="stop-search" placeholder="Search by stop name...">
+
+                </div>
+
+                <div class="control-group">
+
+                    <label for="stop">
+        Stop
+    </label>
+
+                    <select id="stop">
+
+        <option value="">
+            Select a stop
+        </option>
+
+    </select>
+
+                </div>
+
+                <!-- Day -->
+
+                <div class="control-group">
+
+                    <label for="day">
+                        Day
+                    </label>
+
+                    <select id="day">
+
+                        <option value="monday">
+                            Monday
+                        </option>
+
+                        <option value="tuesday">
+                            Tuesday
+                        </option>
+
+                        <option value="wednesday">
+                            Wednesday
+                        </option>
+
+                        <option value="thursday">
+                            Thursday
+                        </option>
+
+                        <option value="friday">
+                            Friday
+                        </option>
+
+                        <option value="saturday">
+                            Saturday
+                        </option>
+
+                        <option value="sunday">
+                            Sunday
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Start Time -->
+
+                <div class="control-group">
+
+                    <label for="start-time">
+                        Start Time
+                    </label>
+
+                    <input type="time" id="start-time" value="07:00">
+
+                </div>
+
+
+                <!-- End Time -->
+
+                <div class="control-group">
+
+                    <label for="end-time">
+                        End Time
+                    </label>
+
+                    <input type="time" id="end-time" value="09:00">
+
+                </div>
+
+
+            </div>
+
+
+            <button id="calculate-button" onclick="calculateFrequency()">
+
+                Calculate Frequency
+
+            </button>
+
+
+        </section>
+
+
+        <!-- ==================================================
+             Route Information
+        ================================================== -->
+
+        <section class="card">
+
+            <div id="route-info">
+
+                <h2>
+                    Route Information
+                </h2>
+
+                <p>
+                    Select a route to view route information.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- ==================================================
+     Frequency Results
+================================================== -->
+
+        <section class="card">
+            <div id="frequency-result">
+                <h2>Frequency Analysis</h2>
+                <p>Select a route, direction, stop, and time range to calculate frequency.</p>
+            </div>
+
+            <div class="chart-container">
+                <h3>Headway Chart</h3>
+                <canvas id="headway-chart"></canvas>
+            </div>
+        </section>
+
+        <!-- ==================================================
+     Peak vs Off-Peak Analysis
+================================================== -->
+
+        <section class="card">
+
+            <div id="service-period-analysis">
+
+                <h2>
+                    Peak vs Off-Peak Analysis
+                </h2>
+
+                <p>
+                    Calculate frequency to view service performance by time period.
+                </p>
+
+                <div class="period-cards">
+
+                    <!-- Morning Peak -->
+
+                    <div class="period-card">
+
+                        <h3>
+                            Morning Peak
+                        </h3>
+
+                        <p>
+                            <strong>Departures:</strong>
+                            <span id="morning-peak-departures">-</span>
+                        </p>
+
+                        <p>
+                            <strong>Average Headway:</strong>
+                            <span id="morning-peak-headway">-</span> min
+                        </p>
+
+                        <p>
+                            <strong>Service Intensity:</strong>
+                            <span id="morning-peak-intensity">-</span> buses/hour
+                        </p>
+
+                    </div>
+
+
+                    <!-- Midday Off-Peak -->
+
+                    <div class="period-card">
+
+                        <h3>
+                            Midday Off-Peak
+                        </h3>
+
+                        <p>
+                            <strong>Departures:</strong>
+                            <span id="midday-off-peak-departures">-</span>
+                        </p>
+
+                        <p>
+                            <strong>Average Headway:</strong>
+                            <span id="midday-off-peak-headway">-</span> min
+                        </p>
+
+                        <p>
+                            <strong>Service Intensity:</strong>
+                            <span id="midday-off-peak-intensity">-</span> buses/hour
+                        </p>
+
+                    </div>
+
+
+                    <!-- Evening Peak -->
+
+                    <div class="period-card">
+
+                        <h3>
+                            Evening Peak
+                        </h3>
+
+                        <p>
+                            <strong>Departures:</strong>
+                            <span id="evening-peak-departures">-</span>
+                        </p>
+
+                        <p>
+                            <strong>Average Headway:</strong>
+                            <span id="evening-peak-headway">-</span> min
+                        </p>
+
+                        <p>
+                            <strong>Service Intensity:</strong>
+                            <span id="evening-peak-intensity">-</span> buses/hour
+                        </p>
+
+                    </div>
+
+
+                    <!-- Evening Off-Peak -->
+
+                    <div class="period-card">
+
+                        <h3>
+                            Evening Off-Peak
+                        </h3>
+
+                        <p>
+                            <strong>Departures:</strong>
+                            <span id="evening-off-peak-departures">-</span>
+                        </p>
+
+                        <p>
+                            <strong>Average Headway:</strong>
+                            <span id="evening-off-peak-headway">-</span> min
+                        </p>
+
+                        <p>
+                            <strong>Service Intensity:</strong>
+                            <span id="evening-off-peak-intensity">-</span> buses/hour
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ==================================================
+         Footer
+    ================================================== -->
+
+    <footer>
+
+        <p>
+            TransLink Transit Intelligence Pipeline
+        </p>
+
+        <p>
+            GTFS Scheduled Service Analysis
+        </p>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/app.js"></script>
+</body>
+
+</html>

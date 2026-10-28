@@ -1,0 +1,1111 @@
+/* ==================================================
+   General Page
+================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    line-height: 1.5;
+}
+
+
+/* ==================================================
+   Header
+================================================== */
+
+.header {
+    background: #1f4e79;
+    color: white;
+    padding: 38px 20px;
+    border-bottom: 4px solid #163a5c;
+}
+
+.header-content {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.header h1 {
+    margin: 0 0 8px 0;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.header p {
+    margin: 0;
+    font-size: 15px;
+    opacity: 0.9;
+}
+
+
+/* ==================================================
+   Main Container
+================================================== */
+
+.container {
+    max-width: 1200px;
+    margin: 35px auto;
+    padding: 0 24px;
+}
+
+
+/* ==================================================
+   Cards
+================================================== */
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 25px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.06);
+}
+
+.card h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: #1f4e79;
+    font-size: 22px;
+}
+
+.card h3 {
+    color: #334155;
+}
+
+
+/* ==================================================
+   Form Controls
+================================================== */
+
+.controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 20px;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.control-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #334155;
+    font-size: 14px;
+}
+
+select,
+input[type="time"],
+input[type="text"] {
+    width: 100%;
+    padding: 12px 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    font-size: 15px;
+    background: white;
+    color: #1e293b;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+select:focus,
+input[type="time"]:focus,
+input[type="text"]:focus {
+    border-color: #1f4e79;
+    box-shadow: 0 0 0 3px rgba(31, 78, 121, 0.12);
+}
+
+
+/* ==================================================
+   Button
+================================================== */
+
+button {
+    margin-top: 25px;
+    padding: 13px 24px;
+    border: none;
+    border-radius: 7px;
+    background: #1f4e79;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+    background: #163a5c;
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+
+/* ==================================================
+   Frequency Results
+================================================== */
+
+.frequency-summary {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.frequency-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 105px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.frequency-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+.frequency-card strong {
+    display: block;
+    color: #64748b;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.frequency-card span {
+    display: block;
+    font-size: 25px;
+    font-weight: 700;
+    color: #1f4e79;
+}
+
+.departure-times {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.departure {
+    background: #e8f1f8;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-weight: bold;
+}
+
+
+/* ==================================================
+   Route Information
+================================================== */
+
+.route-summary {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.route-card {
+    background: #f8fafc;
+    border: 1px solid #dbe3ec;
+    border-radius: 10px;
+    padding: 22px;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.route-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+.route-card strong {
+    display: block;
+    font-size: 13px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.route-card span {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1f4e79;
+    margin-bottom: 18px;
+}
+
+.route-card p {
+    margin: 8px 0;
+    color: #475569;
+    font-size: 14px;
+}
+
+.route-card p strong {
+    display: inline;
+    color: #334155;
+    font-size: 14px;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+
+/* ==================================================
+   Footer
+================================================== */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #64748b;
+    font-size: 13px;
+}
+
+
+/* ==================================================
+   Headway Analysis
+================================================== */
+
+.headway-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.headway-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 12px 15px;
+}
+
+.headway-item span {
+    color: #475569;
+}
+
+.headway-item strong {
+    color: #1f4e79;
+}
+
+
+/* ==================================================
+   Headway Visualization
+================================================== */
+
+.headway-chart {
+    margin-top: 15px;
+}
+
+.headway-bar-row {
+    display: grid;
+    grid-template-columns: 150px 1fr 70px;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.headway-label {
+    font-size: 14px;
+    color: #475569;
+}
+
+.headway-bar-container {
+    height: 22px;
+    background: #e2e8f0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.headway-bar {
+    height: 100%;
+    background: #1f4e79;
+    border-radius: 5px;
+    min-width: 5px;
+}
+
+.headway-value {
+    text-align: right;
+    color: #1f4e79;
+}
+
+.headway-bar.long-gap {
+    background: #dc2626;
+}
+
+
+/* ==================================================
+   Long Gap Warning
+================================================== */
+
+.long-gap-warning {
+    margin-top: 20px;
+    padding: 15px 18px;
+    background: #fff7ed;
+    border: 1px solid #fdba74;
+    border-left: 5px solid #f97316;
+    border-radius: 8px;
+    color: #9a3412;
+    font-weight: 600;
+}
+
+
+/* ==================================================
+   Headway Legend
+================================================== */
+
+.headway-legend {
+    display: flex;
+    gap: 25px;
+    margin: 15px 0 20px 0;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #475569;
+}
+
+.legend-box {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.legend-box.normal-gap {
+    background: #1f4e79;
+}
+
+.legend-box.long-gap {
+    background: #dc2626;
+}
+
+
+/* ==================================================
+   Peak vs Off-Peak Analysis Cards
+================================================== */
+
+.period-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.period-card {
+    background: #ffffff;
+    border: 1px solid #d9d9d9;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.period-card h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.period-card p {
+    margin: 10px 0;
+}
+
+.period-card strong {
+    display: inline-block;
+}
+
+
+/* ==================================================
+   Chart
+================================================== */
+
+.chart-container {
+    margin-top: 30px;
+    padding: 20px;
+    height: 450px;
+}
+
+.chart-container h3 {
+    margin-bottom: 15px;
+}
+
+#headway-chart {
+    width: 100%;
+    height: 400px;
+}
+
+
+/* ==================================================
+   Responsive - Frequency Cards
+================================================== */
+
+@media (max-width: 1000px) {
+    .frequency-summary {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* ==================================================
+   Responsive - Period Cards
+================================================== */
+
+@media (max-width: 900px) {
+    .period-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* ==================================================
+   Mobile
+================================================== */
+
+@media (max-width: 700px) {
+    .controls {
+        grid-template-columns: 1fr;
+    }
+    .frequency-summary {
+        grid-template-columns: 1fr;
+    }
+    .route-summary {
+        grid-template-columns: 1fr;
+    }
+    .header {
+        padding: 30px 20px;
+    }
+    .header h1 {
+        font-size: 24px;
+    }
+    .container {
+        margin: 25px auto;
+        padding: 0 15px;
+    }
+    .card {
+        padding: 20px;
+    }
+    .headway-bar-row {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+    .headway-value {
+        text-align: left;
+    }
+}
+
+
+/* ==================================================
+   Small Mobile - Period Cards
+================================================== */
+
+@media (max-width: 600px) {
+    .period-cards {
+        grid-template-columns: 1fr;
+    }
+    .chart-container {
+        padding: 10px;
+        height: 350px;
+    }
+    #headway-chart {
+        height: 300px;
+    }
+}
+
+
+/* ==================================================
+   UI POLISH - Overall Dashboard
+================================================== */
+
+body {
+    background: #f4f7fb;
+    color: #172033;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Header */
+
+.header {
+    background: linear-gradient(135deg, #12395b 0%, #1f5f91 100%);
+    border-bottom: none;
+    padding: 42px 24px;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.12);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header h1 {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: -0.7px;
+    margin: 0 0 6px;
+}
+
+.header p {
+    font-size: 16px;
+    color: #dbeafe;
+    opacity: 1;
+}
+
+
+/* Main dashboard area */
+
+.container {
+    max-width: 1200px;
+    margin: 32px auto;
+    padding: 0 24px;
+}
+
+
+/* Main white sections */
+
+.card {
+    background: #ffffff;
+    border: 1px solid #e5eaf1;
+    border-radius: 14px;
+    padding: 30px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.055);
+}
+
+.card h2 {
+    color: #183b5b;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 7px;
+}
+
+.card>p {
+    margin-top: 0;
+    color: #64748b;
+}
+
+
+/* Scheduled service notice */
+
+.service-disclaimer {
+    background: #f0f7ff;
+    border: 1px solid #cfe3f6;
+    border-left: 4px solid #2878b5;
+    border-radius: 8px;
+    padding: 13px 16px;
+    margin-top: 16px;
+    color: #42566a;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.service-disclaimer strong {
+    color: #183b5b;
+}
+
+
+/* Make second notice look like a data-status box */
+
+.service-disclaimer+.service-disclaimer {
+    background: #f0fdf7;
+    border-color: #c7ead8;
+    border-left-color: #23855b;
+    color: #416052;
+    margin-top: 10px;
+}
+
+.service-disclaimer+.service-disclaimer strong {
+    color: #17603f;
+}
+
+
+/* Better section separation */
+
+#route-info,
+#frequency-result,
+#service-period-analysis {
+    position: relative;
+}
+
+
+/* Footer */
+
+footer {
+    border-top: 1px solid #e2e8f0;
+    background: #ffffff;
+    padding: 28px 20px;
+    color: #64748b;
+}
+
+footer p {
+    margin: 4px 0;
+}
+
+footer p:first-child {
+    color: #334155;
+    font-weight: 600;
+}
+
+
+/* Fix existing button transition */
+
+button {
+    transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+    .header {
+        padding: 32px 20px;
+    }
+    .header h1 {
+        font-size: 26px;
+    }
+    .header p {
+        font-size: 14px;
+    }
+    .container {
+        margin: 20px auto;
+        padding: 0 14px;
+    }
+    .card {
+        padding: 20px;
+        border-radius: 11px;
+    }
+}
+
+
+/* ==================================================
+   UI POLISH - Transit Analysis Filters
+================================================== */
+
+
+/* Filter grid */
+
+.controls {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 24px;
+    padding: 24px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+}
+
+
+/* Each field */
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+}
+
+.control-group label {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 700;
+    color: #475569;
+}
+
+
+/* Inputs and dropdowns */
+
+.control-group select,
+.control-group input {
+    width: 100%;
+    height: 46px;
+    padding: 0 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #1e293b;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+
+/* Hover */
+
+.control-group select:hover,
+.control-group input:hover {
+    border-color: #94a3b8;
+}
+
+
+/* Focus */
+
+.control-group select:focus,
+.control-group input:focus {
+    border-color: #2878b5;
+    box-shadow: 0 0 0 3px rgba(40, 120, 181, 0.12);
+    background: #ffffff;
+}
+
+
+/* Placeholder */
+
+.control-group input::placeholder {
+    color: #94a3b8;
+}
+
+
+/* Calculate button */
+
+#calculate-button {
+    display: block;
+    width: 220px;
+    min-height: 48px;
+    margin: 22px 0 0 auto;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 9px;
+    background: #1f5f91;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(31, 95, 145, 0.22);
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+#calculate-button:hover {
+    background: #174b73;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 12px rgba(31, 95, 145, 0.26);
+}
+
+#calculate-button:active {
+    transform: translateY(0);
+}
+
+
+/* Tablet */
+
+@media (max-width: 900px) {
+    .controls {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    .controls {
+        grid-template-columns: 1fr;
+        padding: 16px;
+        gap: 15px;
+    }
+    #calculate-button {
+        width: 100%;
+        margin-top: 18px;
+    }
+}
+
+
+/* ==================================================
+   UI POLISH - Results Dashboard
+================================================== */
+
+
+/* Route Information */
+
+#route-info>h2 {
+    font-size: 26px;
+    margin-bottom: 4px;
+}
+
+#route-info>p {
+    margin-top: 0;
+    margin-bottom: 22px;
+    color: #64748b;
+    font-size: 15px;
+}
+
+
+/* Route cards */
+
+.route-summary {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.route-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: none;
+}
+
+.route-card:hover {
+    border-color: #bfd4e6;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(15, 23, 42, 0.07);
+}
+
+.route-card strong {
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+}
+
+.route-card span {
+    margin-top: 5px;
+    margin-bottom: 12px;
+    color: #174b73;
+    font-size: 19px;
+}
+
+
+/* ==================================================
+   Frequency Metric Cards
+================================================== */
+
+.frequency-summary {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 14px;
+    margin: 24px 0;
+}
+
+.frequency-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 18px;
+    min-height: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: none;
+}
+
+.frequency-card:hover {
+    border-color: #bfd4e6;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(15, 23, 42, 0.07);
+}
+
+.frequency-card strong {
+    color: #64748b;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 7px;
+}
+
+.frequency-card span {
+    color: #174b73;
+    font-size: 27px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+
+/* ==================================================
+   Departure Times
+================================================== */
+
+#frequency-result h3 {
+    margin-top: 30px;
+    margin-bottom: 12px;
+    color: #334155;
+    font-size: 17px;
+}
+
+.departure-times {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 12px;
+}
+
+.departure {
+    background: #edf6fc;
+    border: 1px solid #c9deed;
+    color: #174b73;
+    border-radius: 7px;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* ==================================================
+   Headway List
+================================================== */
+
+.headway-list {
+    gap: 8px;
+}
+
+.headway-item {
+    background: #f8fafc;
+    border: 1px solid #e5eaf1;
+    border-radius: 7px;
+    padding: 11px 14px;
+}
+
+.headway-item:hover {
+    background: #f3f7fa;
+}
+
+.headway-item strong {
+    color: #174b73;
+}
+
+
+/* ==================================================
+   Headway Visualization
+================================================== */
+
+.headway-bar-container {
+    height: 18px;
+    background: #e7edf3;
+    border-radius: 20px;
+}
+
+.headway-bar {
+    background: #2878b5;
+    border-radius: 20px;
+}
+
+.headway-bar.long-gap {
+    background: #dc2626;
+}
+
+.legend-box {
+    border-radius: 3px;
+}
+
+.legend-box.normal-gap {
+    background: #2878b5;
+}
+
+
+/* ==================================================
+   Chart Area
+================================================== */
+
+.chart-container {
+    margin-top: 32px;
+    padding: 22px;
+    height: 430px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+}
+
+.chart-container h3 {
+    margin-top: 0;
+    color: #334155;
+}
+
+
+/* ==================================================
+   Peak / Off-Peak Cards
+================================================== */
+
+.period-cards {
+    gap: 15px;
+}
+
+.period-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: none;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.period-card:hover {
+    transform: translateY(-2px);
+    border-color: #bfd4e6;
+    box-shadow: 0 5px 14px rgba(15, 23, 42, 0.07);
+}
+
+.period-card h3 {
+    color: #174b73;
+    font-size: 17px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.period-card p {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    color: #64748b;
+    font-size: 13px;
+}
+
+.period-card p strong {
+    color: #475569;
+}
+
+.period-card span {
+    color: #172033;
+    font-weight: 700;
+}
+
+
+/* ==================================================
+   Responsive Results
+================================================== */
+
+@media (max-width: 1050px) {
+    .frequency-summary {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .period-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .frequency-summary,
+    .route-summary,
+    .period-cards {
+        grid-template-columns: 1fr;
+    }
+    .chart-container {
+        height: 350px;
+        padding: 14px;
+    }
+    #headway-chart {
+        height: 300px;
+    }
+}
