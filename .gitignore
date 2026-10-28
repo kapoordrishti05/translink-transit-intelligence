@@ -4,3 +4,4 @@ __pycache__/
 venv/
 .env
 Tests_Run_on_Data/google_transit/*.txt
+!Tests_Run_on_Data/google_transit/feed_info.txt
